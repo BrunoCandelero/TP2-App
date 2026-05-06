@@ -10,31 +10,29 @@ export default function NivelSeguridad({ password }) {
   ].filter(Boolean).length;
 
 
-  let nivel = { txt: "Muy débil", col: "#ff4d4d", bars: 1 };
+  let nivel = { txt: "Muy débil", col: "#ff4d4d" };
   
   if (score === 2) {
-    nivel = { txt: "Débil", col: "#ff944d", bars: 1 }; 
+    nivel = { txt: "Débil", col: "#ff944d" }; 
   } else if (score === 3) {
-
-    nivel = { txt: "Segura", col: "#ffa500", bars: 2 }; 
+    nivel = { txt: "Segura", col: "#ffa500" }; 
   } else if (score === 4) {
-
-    nivel = { txt: "Muy segura", col: "#2ecc71", bars: 3 }; 
+    nivel = { txt: "Muy segura", col: "#2ecc71" }; 
   }
 
   if (!password) return null;
 
   return (
     <div style={{ marginTop: "20px", textAlign: "center" }}>
-      <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
-        {[1, 2, 3].map((i) => (
+      <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+        {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
             style={{
               height: "10px",
-              width: "60px",
+              width: "50px", 
               borderRadius: "5px",
-              backgroundColor: i <= nivel.bars ? nivel.col : "#eee",
+              backgroundColor: i <= score ? nivel.col : "#eee", 
               transition: "0.3s"
             }}
           />
